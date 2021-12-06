@@ -1,8 +1,9 @@
 import { averageGrade_fp, averageGrade_oop, average_fp, average_oop } from './average';
 import { power_oop, power_fp } from './power';
 import { showStudent_fp, showStudent_oop } from './showStudent';
+import main from '../main';
 
-const codes = [
+main([
   power_oop,
   power_fp,
   showStudent_oop,
@@ -11,7 +12,4 @@ const codes = [
   average_fp,
   averageGrade_oop,
   averageGrade_fp
-];
-
-const main = () => codes.forEach(code => code());
-main();
+]);
