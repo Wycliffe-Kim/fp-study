@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "ch1": "cd ch1 && ts-node index.ts"
+    "ch1": "cd ch1 && ts-node index.ts",
+    "ch2": "cd ch2 && ts-node index.ts"
   },
   "repository": {
     "type": "git",
