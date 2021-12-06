@@ -1,0 +1,24 @@
+{
+  "name": "fp-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "ch1": "cd ch1 && ts-node index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wycliffe-Kim/fp-study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wycliffe-Kim/fp-study/issues"
+  },
+  "homepage": "https://github.com/Wycliffe-Kim/fp-study#readme",
+  "dependencies": {
+    "@types/node": "^16.11.11",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2"
+  }
+}
