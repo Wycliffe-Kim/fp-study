@@ -1,9 +1,12 @@
-import fpPower from './fpPower';
-import oopPower from './oopPower';
+import { power_oop, power_fp } from './power';
+import { showStudent_fp, showStudent_oop } from './showStudent';
 
-function main() {
-  oopPower();
-  fpPower();
-}
+const codes = [
+  power_oop,
+  power_fp,
+  showStudent_oop,
+  showStudent_fp,
+];
 
+const main = () => codes.forEach(code => code());
 main();
