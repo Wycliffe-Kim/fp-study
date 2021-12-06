@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "start": "yarn ch1 && yarn ch2",
     "ch1": "cd ch1 && ts-node index.ts",
     "ch2": "cd ch2 && ts-node index.ts"
   },
