@@ -23,7 +23,7 @@ class StudentDB {
   ];
 
   find = (ssn: string) => {
-    return this.students.filter(student => student.ssn === ssn).at(0);
+    return this.students.filter(student => student.ssn === ssn)[0];
   }
 }
 
