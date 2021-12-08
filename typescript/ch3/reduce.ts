@@ -1,6 +1,6 @@
 import _ from 'lodash';
-import { Address } from './Address';
-import { Person_fp, Person_oop } from './Person';
+import { Address } from '../ch2/Address';
+import { Person_fp, Person_oop } from '../ch2/Person';
 
 function reduce_oop() {
   const p1 = new Person_oop('Haskel', 'Curry', '111-11-1111');

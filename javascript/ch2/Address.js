@@ -1,7 +1,5 @@
 class Address {
-  _country: string;
-
-  constructor(country: string) {
+  constructor(country) {
     this._country = country;
   }
 
@@ -9,7 +7,7 @@ class Address {
     return this._country;
   }
 
-  set country(country: string) {
+  set country(country) {
     this._country = country;
   }
 }
