@@ -1,0 +1,32 @@
+{
+  "name": "fp-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint --fix --ext .js,.ts .",
+    "start": "yarn ch1 && yarn ch2 && yarn ch3",
+    "ch1": "cd ch1 && node index.js",
+    "ch2": "cd ch2 && node index.js",
+    "ch3": "cd ch3 && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wycliffe-Kim/fp-study.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wycliffe-Kim/fp-study/issues"
+  },
+  "homepage": "https://github.com/Wycliffe-Kim/fp-study#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "lodash-lens": "^1.0.3"
+  },
+  "devDependencies": {
+    "eslint-config-wycliffe": "^1.0.4",
+    "eslint": "^8.4.1",
+    "eslint-plugin-import": "^2.25.3"
+  }
+}
