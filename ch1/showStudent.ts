@@ -3,7 +3,7 @@ import fp from 'lodash/fp';
 
 const ssn = '444-44-4444';
 function showStudent_oop() {
-  let student = studentDB.find(ssn);
+  const student = studentDB.find(ssn);
   if (student != null) {
     console.log('showStudent_oop', `${student.ssn}, ${student.firstname}, ${student.lastname}`);
   } else {
@@ -13,7 +13,7 @@ function showStudent_oop() {
 
 function showStudent_fp() {
   const findFrom = fp.curry((db: any, id: string) => {
-    let obj = db.find(id);
+    const obj = db.find(id);
     if (obj == null) {
       throw new Error('학생을 찾을 수 없습니다.');
     }
@@ -36,4 +36,4 @@ function showStudent_fp() {
 export {
   showStudent_oop,
   showStudent_fp
-}
+};

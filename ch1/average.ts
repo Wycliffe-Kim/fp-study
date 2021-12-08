@@ -38,8 +38,8 @@ function averageGrade_oop() {
 
 function averageGrade_fp() {
   const arr = _.chain(enrollment)
-    .filter(student => student.enrolled > 1)
-    .map(student => student.grade)
+    .filter((student) => student.enrolled > 1)
+    .map((student) => student.grade)
     .value();
   console.log('averageGrade_fp', _average_fp(arr));
 }
@@ -57,4 +57,4 @@ export {
   average_fp,
   averageGrade_oop,
   averageGrade_fp
-}
+};

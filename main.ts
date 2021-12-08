@@ -1,2 +1,3 @@
-const main = (codes: any[]) => codes.forEach(code => code());
+type func = () => void;
+const main = (codes: func[]) => codes.forEach((code) => code());
 export default main;

@@ -2,9 +2,13 @@ import { Address } from './Address';
 
 class Person {
   _firstname: string;
+
   _lastname: string;
+
   _ssn: string;
+
   _address: Address;
+
   _birthYear: number;
 
   constructor(firstname: string, lastname: string, ssn: string) {
@@ -54,12 +58,16 @@ class Person {
   set birthYear(birthYear: number) {
     this._birthYear = birthYear;
   }
+
+  get fullname() {
+    return `${this.firstname} ${this.lastname}`;
+  }
 }
 
 class Person_oop extends Person {
   peopleInSameCountry(friends: Person[]) {
     const result: Person[] = [];
-    for (let i in friends) {
+    for (const i in friends) {
       const friend = friends[i];
       if (this.address.country == friend.address.country) {
         result.push(friend);
@@ -75,4 +83,4 @@ class Person_fp extends Person {}
 export {
   Person_oop,
   Person_fp
-}
+};
