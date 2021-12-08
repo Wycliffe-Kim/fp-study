@@ -1,20 +1,20 @@
 import { Address } from './Address';
-import { Student_fp, Student_oop } from './Student';
+import { Student_fp, Student_ip } from './Student';
 
-function findStudentsBy_oop() {
-  const curry = new Student_oop('Haskell', 'Curry', '111-11-1111', 'Penn State');
+function findStudentsBy_ip() {
+  const curry = new Student_ip('Haskell', 'Curry', '111-11-1111', 'Penn State');
   curry.address = new Address('US');
 
-  const turing = new Student_oop('Alan', 'Turing', '222-22-2222', 'Princeton');
+  const turing = new Student_ip('Alan', 'Turing', '222-22-2222', 'Princeton');
   turing.address = new Address('England');
 
-  const church = new Student_oop('Alonzo', 'Church', '333-33-3333', 'Princeton');
+  const church = new Student_ip('Alonzo', 'Church', '333-33-3333', 'Princeton');
   church.address = new Address('US');
 
-  const kleene = new Student_oop('Stephen', 'Kleene', '444-44-4444', 'Princeton');
+  const kleene = new Student_ip('Stephen', 'Kleene', '444-44-4444', 'Princeton');
   kleene.address = new Address('US');
 
-  console.log('findStudentBy_oop', church.studentsInSameCountryAndSchool([curry, turing, kleene]));
+  console.log('findStudentBy_ip', church.studentsInSameCountryAndSchool([curry, turing, kleene]));
 }
 
 function findStudentsBy_fp() {
@@ -36,6 +36,6 @@ function findStudentsBy_fp() {
 }
 
 export {
-  findStudentsBy_oop,
+  findStudentsBy_ip,
   findStudentsBy_fp
 };

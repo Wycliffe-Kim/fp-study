@@ -1,6 +1,6 @@
-import { Person_fp, Person_oop } from './Person';
+import { Person_fp, Person_ip } from './Person';
 
-class Student_oop extends Person_oop {
+class Student_ip extends Person_ip {
   constructor(firstname, lastname, ssn, school) {
     super(firstname, lastname, ssn);
     this._school = school;
@@ -36,6 +36,6 @@ class Student_fp extends Person_fp {
 }
 
 export {
-  Student_oop,
+  Student_ip,
   Student_fp
 };

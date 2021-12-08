@@ -8,7 +8,7 @@ const names = [
   'stephen_kleene'
 ];
 
-function sort_oop() {
+function sort_ip() {
   const result = [];
   for (let i = 0; i < names.length; i++) {
     const n = names[i];
@@ -27,7 +27,7 @@ function sort_oop() {
 
   result.sort();
 
-  console.log('sort_oop', result);
+  console.log('sort_ip', result);
 }
 
 function sort_fp() {
@@ -43,6 +43,6 @@ function sort_fp() {
 }
 
 export {
-  sort_oop,
+  sort_ip,
   sort_fp
 };
