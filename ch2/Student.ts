@@ -15,7 +15,7 @@ class Student_oop extends Person_oop {
   studentsInSameCountryAndSchool(friends: Student_oop[]) {
     const closeFriends = super.peopleInSameCountry(friends);
     const result = [];
-    for (let i in closeFriends) {
+    for (const i in closeFriends) {
       const friend = closeFriends[i] as Student_oop;
       if (this.school == friend.school) {
         result.push(friend);
@@ -42,4 +42,4 @@ class Student_fp extends Person_fp {
 export {
   Student_oop,
   Student_fp
-}
+};

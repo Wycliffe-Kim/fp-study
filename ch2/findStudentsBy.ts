@@ -38,4 +38,4 @@ function findStudentsBy_fp() {
 export {
   findStudentsBy_oop,
   findStudentsBy_fp
-}
+};

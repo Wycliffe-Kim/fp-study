@@ -14,4 +14,4 @@ const power_fp = () => console.log('fpPower', array.map((num) => Math.pow(num, 2
 export {
   power_oop,
   power_fp,
-}
+};

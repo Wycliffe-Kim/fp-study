@@ -23,12 +23,12 @@ class StudentDB {
   ];
 
   find = (ssn: string) => {
-    return this.students.filter(student => student.ssn === ssn)[0];
-  }
+    return this.students.filter((student) => student.ssn === ssn)[0];
+  };
 }
 
-const studentDB = new StudentDB()
+const studentDB = new StudentDB();
 
 export {
   studentDB
-}
+};
