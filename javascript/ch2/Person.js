@@ -1,17 +1,7 @@
 import { Address } from './Address';
 
 class Person {
-  _firstname: string;
-
-  _lastname: string;
-
-  _ssn: string;
-
-  _address: Address;
-
-  _birthYear: number;
-
-  constructor(firstname: string, lastname: string, ssn: string) {
+  constructor(firstname, lastname, ssn) {
     this._firstname = firstname;
     this._lastname = lastname;
     this._ssn = ssn;
@@ -23,7 +13,7 @@ class Person {
     return this._firstname;
   }
 
-  set firstname(firstname: string) {
+  set firstname(firstname) {
     this._firstname = firstname;
   }
 
@@ -31,7 +21,7 @@ class Person {
     return this._lastname;
   }
 
-  set lastname(lastname: string) {
+  set lastname(lastname) {
     this._lastname = lastname;
   }
 
@@ -39,7 +29,7 @@ class Person {
     return this._ssn;
   }
 
-  set ssn(ssn: string) {
+  set ssn(ssn) {
     this._ssn = ssn;
   }
 
@@ -47,7 +37,7 @@ class Person {
     return this._address;
   }
 
-  set address(address: Address) {
+  set address(address) {
     this._address = address;
   }
 
@@ -55,7 +45,7 @@ class Person {
     return this._birthYear;
   }
 
-  set birthYear(birthYear: number) {
+  set birthYear(birthYear) {
     this._birthYear = birthYear;
   }
 
@@ -65,8 +55,8 @@ class Person {
 }
 
 class Person_oop extends Person {
-  peopleInSameCountry(friends: Person[]) {
-    const result: Person[] = [];
+  peopleInSameCountry(friends) {
+    const result = [];
     for (const i in friends) {
       const friend = friends[i];
       if (this.address.country == friend.address.country) {

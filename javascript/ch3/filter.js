@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { Address } from '../ch2/Address';
 import { Person_fp, Person_oop } from '../ch2/Person';
 
-function map_oop() {
+function filter_oop() {
   const p1 = new Person_oop('Haskel', 'Curry', '111-11-1111');
   p1.address = new Address('US');
   p1.birthYear = 1900;
@@ -19,20 +19,28 @@ function map_oop() {
   p4.address = new Address('US');
   p4.birthYear = 1903;
 
-  const result = [];
+  let result = '';
   const persons = [p1, p2, p3, p4];
+  let first = true;
 
   for (let i = 0; i < persons.length; i++) {
-    const p = persons[i];
-    if (p != null) {
-      result.push(p.fullname);
+    if (persons[i].birthYear != 1903) {
+      continue;
     }
+
+    if (first == true) {
+      first = false;
+    } else {
+      result += ' and ';
+    }
+
+    result += persons[i].fullname;
   }
 
-  console.log('map_oop', result);
+  console.log('filter_oop', result);
 }
 
-function map_fp() {
+function filter_fp() {
   const p1 = new Person_fp('Haskel', 'Curry', '111-11-1111');
   p1.address = new Address('US');
   p1.birthYear = 1900;
@@ -49,14 +57,18 @@ function map_fp() {
   p4.address = new Address('US');
   p4.birthYear = 1903;
 
-  const fullname = (person: Person_fp) => `${person.firstname} ${person.lastname}`;
+  const fullname = (person) => `${person.firstname} ${person.lastname}`;
 
   const persons = [p1, p2, p3, p4];
-  const result = _(persons).map((person) => person != null ? fullname(person) : '').value();
-  console.log('map_fp', result);
+  const result = _(persons)
+    .filter((person) => person.birthYear == 1903)
+    .map(fullname)
+    .join(' and ');
+
+  console.log('filter_fp', result);
 }
 
 export {
-  map_oop,
-  map_fp
+  filter_oop,
+  filter_fp
 };

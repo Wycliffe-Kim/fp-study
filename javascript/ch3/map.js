@@ -49,7 +49,7 @@ function map_fp() {
   p4.address = new Address('US');
   p4.birthYear = 1903;
 
-  const fullname = (person: Person_fp) => `${person.firstname} ${person.lastname}`;
+  const fullname = (person) => `${person.firstname} ${person.lastname}`;
 
   const persons = [p1, p2, p3, p4];
   const result = _(persons).map((person) => person != null ? fullname(person) : '').value();
