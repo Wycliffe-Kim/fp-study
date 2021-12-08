@@ -54,7 +54,7 @@ class Person {
   }
 }
 
-class Person_oop extends Person {
+class Person_ip extends Person {
   peopleInSameCountry(friends) {
     const result = [];
     for (const i in friends) {
@@ -71,6 +71,6 @@ class Person_oop extends Person {
 class Person_fp extends Person {}
 
 export {
-  Person_oop,
+  Person_ip,
   Person_fp
 };

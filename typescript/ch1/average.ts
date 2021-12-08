@@ -2,13 +2,13 @@ import _ from 'lodash';
 
 const input = [80, 90, 100];
 
-function average_oop() {
+function average_ip() {
   let sum = 0;
   for (let i = 0; i < input.length; i++) {
     sum += input[i];
   }
   const average = sum / input.length;
-  console.log('average_oop', average);
+  console.log('average_ip', average);
 }
 
 function average_fp() {
@@ -21,7 +21,7 @@ const enrollment = [
   { enrolled: 1, grade: 89 }
 ];
 
-function averageGrade_oop() {
+function averageGrade_ip() {
   let totalGrades = 0;
   let totalStudentsFound = 0;
   for (let i = 0; i < enrollment.length; i++) {
@@ -33,7 +33,7 @@ function averageGrade_oop() {
   }
 
   const average = totalGrades / totalStudentsFound;
-  console.log('averageGrade_oop', average);
+  console.log('averageGrade_ip', average);
 }
 
 function averageGrade_fp() {
@@ -53,8 +53,8 @@ function _average_fp(arr: number[]) {
 }
 
 export {
-  average_oop,
+  average_ip,
   average_fp,
-  averageGrade_oop,
+  averageGrade_ip,
   averageGrade_fp
 };

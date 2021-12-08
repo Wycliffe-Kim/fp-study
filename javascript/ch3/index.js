@@ -1,16 +1,16 @@
 import main from '../main';
-import { filter_fp, filter_oop } from './filter';
-import { map_fp, map_oop } from './map';
-import { reduce_fp, reduce_oop } from './reduce';
-import { sort_fp, sort_oop } from './sort';
+import { filter_fp, filter_ip } from './filter';
+import { map_fp, map_ip } from './map';
+import { reduce_fp, reduce_ip } from './reduce';
+import { sort_fp, sort_ip } from './sort';
 
 main([
-  map_oop,
+  map_ip,
   map_fp,
-  reduce_oop,
+  reduce_ip,
   reduce_fp,
-  filter_oop,
+  filter_ip,
   filter_fp,
-  sort_oop,
+  sort_ip,
   sort_fp
 ]);

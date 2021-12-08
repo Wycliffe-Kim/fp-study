@@ -1,6 +1,6 @@
-import { Person_fp, Person_oop } from './Person';
+import { Person_fp, Person_ip } from './Person';
 
-class Student_oop extends Person_oop {
+class Student_ip extends Person_ip {
   _school: string;
 
   constructor(firstname: string, lastname: string, ssn: string, school: string) {
@@ -12,11 +12,11 @@ class Student_oop extends Person_oop {
     return this._school;
   }
 
-  studentsInSameCountryAndSchool(friends: Student_oop[]) {
+  studentsInSameCountryAndSchool(friends: Student_ip[]) {
     const closeFriends = super.peopleInSameCountry(friends);
     const result = [];
     for (const i in closeFriends) {
-      const friend = closeFriends[i] as Student_oop;
+      const friend = closeFriends[i] as Student_ip;
       if (this.school == friend.school) {
         result.push(friend);
       }
@@ -40,6 +40,6 @@ class Student_fp extends Person_fp {
 }
 
 export {
-  Student_oop,
+  Student_ip,
   Student_fp
 };
