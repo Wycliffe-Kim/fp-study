@@ -1,5 +1,5 @@
-import main from '../main';
-import { findStudentsBy_fp, findStudentsBy_ip } from './findStudentsBy';
+const { findStudentsBy_fp, findStudentsBy_ip } = require('./findStudentsBy');
+const { main } = require('../main');
 
 main([
   findStudentsBy_ip,

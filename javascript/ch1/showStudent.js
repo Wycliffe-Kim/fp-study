@@ -1,5 +1,5 @@
-import { StudentDB } from './db';
-import fp from 'lodash/fp';
+const { StudentDB } = require('./db');
+const fp = require('lodash/fp');
 
 const studentDB = new StudentDB()
 const ssn = '444-44-4444';
@@ -35,7 +35,7 @@ function showStudent_fp() {
   showStudent(ssn);
 }
 
-export {
+module.exports = {
   showStudent_ip,
   showStudent_fp
 };

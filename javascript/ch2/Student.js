@@ -1,4 +1,4 @@
-import { Person_fp, Person_ip } from './Person';
+const { Person_fp, Person_ip } = require('./Person');
 
 class Student_ip extends Person_ip {
   constructor(firstname, lastname, ssn, school) {
@@ -35,7 +35,7 @@ class Student_fp extends Person_fp {
   }
 }
 
-export {
+module.exports = {
   Student_ip,
   Student_fp
 };

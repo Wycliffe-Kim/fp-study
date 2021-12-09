@@ -1,6 +1,6 @@
-import _ from 'lodash';
-import { Address } from '../ch2/Address';
-import { Person_fp, Person_ip } from '../ch2/Person';
+const _ = require('lodash');
+const { Address } = require('../ch2/Address');
+const { Person_fp, Person_ip } = require('../ch2/Person');
 
 function filter_ip() {
   const p1 = new Person_ip('Haskel', 'Curry', '111-11-1111');
@@ -68,7 +68,7 @@ function filter_fp() {
   console.log('filter_fp', result);
 }
 
-export {
+module.exports = {
   filter_ip,
   filter_fp
 };

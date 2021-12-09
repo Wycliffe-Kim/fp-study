@@ -1,8 +1,9 @@
-import main from '../main';
-import { filter_fp, filter_ip } from './filter';
-import { map_fp, map_ip } from './map';
-import { reduce_fp, reduce_ip } from './reduce';
-import { sort_fp, sort_ip } from './sort';
+const { main } = require('../main');
+const { filter_fp, filter_ip } = require('./filter');
+const { map_fp, map_ip } = require('./map');
+const { reduce_fp, reduce_ip } = require('./reduce');
+const { sort_fp, sort_ip } = require('./sort');
+const { treeTraversal_fp } = require('./treeTraversal');
 
 main([
   map_ip,
@@ -12,5 +13,6 @@ main([
   filter_ip,
   filter_fp,
   sort_ip,
-  sort_fp
+  sort_fp,
+  treeTraversal_fp
 ]);
