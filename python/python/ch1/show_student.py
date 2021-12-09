@@ -1,5 +1,6 @@
 from .db import StudentDB
 import toolz as tz
+import pydash
 
 student_db = StudentDB()
 ssn = '444-44-4444'
@@ -18,7 +19,7 @@ def show_student_fp():
             raise ValueError('학생을 찾을 수 없습니다.')
         return obj
       
-    find_from = tz.curry(db_find)
+    find_from = pydash.curry(db_find)
     make_string = lambda student: f'{student["ssn"]}, {student["firstname"]}, {student["lastname"]}'
     log = lambda info: print('show_student_fp', info)
     

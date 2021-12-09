@@ -1,6 +1,7 @@
 from .Address import Address
 from .Student import Student_ip, Student_fp
 import toolz as tz
+import pydash
 
 def find_students_by_ip():
     curry = Student_ip('Haskell', 'Curry', '111-11-1111', 'Penn State')
@@ -32,17 +33,9 @@ def find_students_by_fp():
     
     selector = lambda country, school: lambda student: student.address.country == country and student.school == school
     
-    filter_curry = tz.curry(tz.filter)
-    filter_students_by = filter_curry(selector(church.address.country, church.school))
+    find_students_by = lambda friends, selector: (pydash.chain(friends)
+                                                  .filter_(selector)
+                                                  .map(lambda friend: str(friend))
+                                                  .value())
     
-    map_curry = tz.curry(tz.map)
-    str_students = map_curry(lambda student: str(student))
-    
-    find_students_by = tz.compose(
-        list,
-        str_students,
-        list,
-        filter_students_by
-    )
-    
-    print('find_students_by_fp', find_students_by([curry, turing, kleene]))
+    print('find_students_by_fp', find_students_by([curry, turing, kleene], selector(church.address.country, church.school)))

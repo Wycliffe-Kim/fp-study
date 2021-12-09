@@ -1,4 +1,5 @@
 import toolz as tz
+import pydash
 from ..ch2.Address import Address
 from ..ch2.Person import Person_ip, Person_fp
 
@@ -44,7 +45,7 @@ def reduce_fp():
     p4.address = Address('US');
     p4.birth_year = 1903;
     
-    persons = list(tz.map(lambda person: person.address.country, [p1, p2, p3, p4]))
+    persons = pydash.map_([p1, p2, p3, p4], lambda person: person.address.country)
     result = tz.frequencies(persons)
     
     print('reduce_fp', result)
