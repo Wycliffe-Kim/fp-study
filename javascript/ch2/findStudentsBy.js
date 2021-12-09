@@ -14,7 +14,7 @@ function findStudentsBy_ip() {
   const kleene = new Student_ip('Stephen', 'Kleene', '444-44-4444', 'Princeton');
   kleene.address = new Address('US');
 
-  console.log('findStudentBy_ip', church.studentsInSameCountryAndSchool([curry, turing, kleene]));
+  console.log('findStudentsBy_ip', church.studentsInSameCountryAndSchool([curry, turing, kleene]));
 }
 
 function findStudentsBy_fp() {

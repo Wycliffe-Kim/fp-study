@@ -6,10 +6,10 @@ function power_ip() {
     result.push(Math.pow(array[i], 2));
   }
 
-  console.log('ipPower', result);
+  console.log('power_ip', result);
 }
 
-const power_fp = () => console.log('fpPower', array.map((num) => Math.pow(num, 2)));
+const power_fp = () => console.log('power_fp', array.map((num) => Math.pow(num, 2)));
 
 export {
   power_ip,
