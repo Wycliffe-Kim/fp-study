@@ -53,7 +53,7 @@ function reduce_fp() {
     return stat;
   }, {});
 
-  console.log('reduct_fp', result);
+  console.log('reduce_fp', result);
 }
 
 export {

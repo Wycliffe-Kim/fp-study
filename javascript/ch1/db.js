@@ -1,23 +1,23 @@
 class StudentDB {
   students = [
     {
-      firstname: '',
-      lastname: '',
+      firstname: 'student',
+      lastname: 'A',
       ssn: '111-11-1111'
     },
     {
-      firstname: '',
-      lastname: '',
+      firstname: 'student',
+      lastname: 'B',
       ssn: '222-22-2222'
     },
     {
-      firstname: '',
-      lastname: '',
+      firstname: 'student',
+      lastname: 'C',
       ssn: '333-33-3333'
     },
     {
-      firstname: '',
-      lastname: '',
+      firstname: 'student',
+      lastname: 'D',
       ssn: '444-44-4444'
     },
   ];
@@ -27,8 +27,6 @@ class StudentDB {
   };
 }
 
-const studentDB = new StudentDB();
-
 export {
-  studentDB
+  StudentDB
 };

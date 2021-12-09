@@ -6,9 +6,15 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+toolz = "^0.11.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+
+[tool.poetry.scripts]
+ch1 = "python.ch1.index:index"
+ch2 = "python.ch2.index:index"
+ch3 = "python.ch3.index:index"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

@@ -1,7 +1,9 @@
-import { studentDB } from './db';
+import { StudentDB } from './db';
 import fp from 'lodash/fp';
 
+const studentDB = new StudentDB();
 const ssn = '444-44-4444';
+
 function showStudent_ip() {
   const student = studentDB.find(ssn);
   if (student != null) {
