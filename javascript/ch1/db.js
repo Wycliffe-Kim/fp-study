@@ -27,6 +27,6 @@ class StudentDB {
   };
 }
 
-export {
+module.exports = {
   StudentDB
 };

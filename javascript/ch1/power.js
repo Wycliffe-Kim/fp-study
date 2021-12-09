@@ -11,7 +11,7 @@ function power_ip() {
 
 const power_fp = () => console.log('power_fp', array.map((num) => Math.pow(num, 2)));
 
-export {
+module.exports = {
   power_ip,
   power_fp,
 };

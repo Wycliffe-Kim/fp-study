@@ -1,4 +1,4 @@
-import _ from 'lodash';
+const _ = require('lodash');
 
 const input = [80, 90, 100];
 
@@ -52,7 +52,7 @@ function _average_fp(arr) {
   return divide(total(arr), size(arr));
 }
 
-export {
+module.exports = {
   average_ip,
   average_fp,
   averageGrade_ip,

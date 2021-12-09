@@ -1,5 +1,5 @@
-import { Address } from './Address';
-import { Student_fp, Student_ip } from './Student';
+const { Address } = require('./Address');
+const { Student_ip, Student_fp } = require('./Student');
 
 function findStudentsBy_ip() {
   const curry = new Student_ip('Haskell', 'Curry', '111-11-1111', 'Penn State');
@@ -35,7 +35,7 @@ function findStudentsBy_fp() {
   console.log('findStudentsBy_fp', findStudentsBy([curry, turing, kleene], selector(church.address.country, church.school)));
 }
 
-export {
+module.exports = {
   findStudentsBy_ip,
   findStudentsBy_fp
 };

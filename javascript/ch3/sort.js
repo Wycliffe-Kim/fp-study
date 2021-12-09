@@ -1,4 +1,4 @@
-import _ from 'lodash';
+const _ = require('lodash');
 
 const names = [
   'alonzo church',
@@ -42,7 +42,7 @@ function sort_fp() {
   console.log('sort_fp', result);
 }
 
-export {
+module.exports = {
   sort_ip,
   sort_fp
 };

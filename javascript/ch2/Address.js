@@ -12,6 +12,6 @@ class Address {
   }
 }
 
-export {
+module.exports = {
   Address
 };

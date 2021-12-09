@@ -1,4 +1,4 @@
-import { Address } from './Address';
+const { Address } = require('./Address');
 
 class Person {
   constructor(firstname, lastname, ssn) {
@@ -70,7 +70,7 @@ class Person_ip extends Person {
 
 class Person_fp extends Person {}
 
-export {
+module.exports = {
   Person_ip,
   Person_fp
 };
