@@ -1,4 +1,5 @@
 import toolz as tz
+import pydash
 
 names = [
     'alonzo church',
@@ -26,17 +27,12 @@ def sort_ip():
     print('sort_ip', result)
   
 def sort_fp():
-    result = tz.compose(
-        list,
-        tz.sorted,
-        list,
-        tz.curry(tz.map)(lambda name: name.replace(name[0], name[0].upper())),
-        list,
-        tz.unique,
-        list,
-        tz.curry(tz.map)(lambda name: name.replace('_', ' ')),
-        list,
-        tz.curry(tz.filter)(lambda name: name != None)
-    )(names)
+    result = (pydash.chain(names)
+              .filter_(lambda name: name != None)
+              .map_(lambda name: name.replace('_', ' '))
+              .uniq()
+              .map(pydash.start_case)
+              .sort()
+              .value())
     
     print('sort_fp', result)

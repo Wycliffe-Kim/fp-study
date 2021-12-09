@@ -1,4 +1,4 @@
-import toolz as tz
+import pydash
 from ..ch2.Address import Address
 from ..ch2.Person import Person_ip, Person_fp
 
@@ -53,19 +53,14 @@ def filter_fp():
     p4.address = Address('US');
     p4.birth_year = 1903;
     
-    filter_curry = tz.curry(tz.filter)
-    map_curry = tz.curry(tz.map)
-    
-    fullname = map_curry(lambda person: f'{person.firstname} {person.lastname}')
-    birthyear = filter_curry(lambda person: person.birth_year == 1903)
+    fullname = lambda person: f'{person.firstname} {person.lastname}'
     
     persons = [p1, p2, p3, p4]
-    result = tz.compose(
-      ' and '.join,
-      list,
-      fullname,
-      list,
-      birthyear
-    )(persons)
+    
+    result = (pydash.chain(persons)
+              .filter(lambda person: person.birth_year == 1903)
+              .map(fullname)
+              .join(' and ')
+              .value())
     
     print('filter_fp', result)

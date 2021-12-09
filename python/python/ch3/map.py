@@ -1,4 +1,4 @@
-import toolz as tz
+import pydash
 from ..ch2.Address import Address
 from ..ch2.Person import Person_ip, Person_fp
 
@@ -48,6 +48,6 @@ def map_fp():
     fullname = lambda person: f'{person.firstname} {person.lastname}'
     
     persons = [p1, p2, p3, p4]
-    result = list(tz.map(fullname, persons))
+    result = pydash.map_(persons, fullname)
     
     print('map_fp', result)

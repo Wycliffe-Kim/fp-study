@@ -1,4 +1,4 @@
-import toolz as tz
+import pydash
 
 input = [80, 90, 100]
 
@@ -28,27 +28,20 @@ def average_grade_ip():
             total_students_found += 1
             
     average = total_grades / total_students_found
-    print('averageGrade_ip', average)
+    print('average_grade_ip', average)
     
 def average_grade_fp():
-    map_curry = tz.curry(tz.map)
-    grade = map_curry(lambda student: student['grade'])
+    arr = (pydash.chain(enrollment)
+           .filter_(lambda student: student['enrolled'] > 1)
+           .map_(lambda student: student['grade'])
+           .value())
+
+    print('average_grade_fp', _average_fp(arr))
     
-    filter_curry = tz.curry(tz.filter)
-    enrolled = filter_curry(lambda student: student['enrolled'] > 1)
-    
-    average = tz.compose(
-        _average_fp, 
-        list, 
-        grade, 
-        list, 
-        enrolled)
-    
-    print('averageGrade_fp', average(enrollment))
 
 def _average_fp(arr):
     sum = lambda total, current: total + current
-    total = lambda arr: tz.reduce(sum, arr)
+    total = lambda arr: pydash.reduce_(arr, sum)
     size = lambda arr: len(arr)
     divide = lambda a, b: a / b
     return divide(total(arr), size(arr))

@@ -1,5 +1,5 @@
 import math
-import toolz as tz
+import pydash
 
 array = range(10)
 
@@ -10,4 +10,4 @@ def power_ip():
         
     print('power_ip', result)
     
-power_fp = lambda: print('power_fp', list(tz.map(lambda num: math.pow(num, 2), array)))
+power_fp = lambda: print('power_fp', pydash.map_(array, lambda num: math.pow(num, 2)))
