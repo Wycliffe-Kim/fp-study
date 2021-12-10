@@ -5,10 +5,11 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "start": "yarn ch1 && yarn ch2 && yarn ch3",
+    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4",
     "ch1": "cd ch1 && node index.js",
     "ch2": "cd ch2 && node index.js",
-    "ch3": "cd ch3 && node index.js"
+    "ch3": "cd ch3 && node index.js",
+    "ch4": "cd ch4 && node index.js"
   },
   "repository": {
     "type": "git",
@@ -22,11 +23,12 @@
   "homepage": "https://github.com/Wycliffe-Kim/fp-study#readme",
   "dependencies": {
     "lodash": "^4.17.21",
-    "lodash-lens": "^1.0.3"
+    "lodash-lens": "^1.0.3",
+    "ramda": "^0.27.1"
   },
   "devDependencies": {
-    "eslint-config-wycliffe": "^1.0.4",
     "eslint": "^8.4.1",
+    "eslint-config-wycliffe": "^1.0.4",
     "eslint-plugin-import": "^2.25.3"
   }
 }

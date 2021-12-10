@@ -1,7 +1,7 @@
-import R from 'ramda';
+const R = require('ramda');
 
 function currying() {
-  const checkType = R.curry((typeDef: any, obj: any) => {
+  const checkType = R.curry((typeDef, obj) => {
     if (!R.is(typeDef, obj)) {
       const type = typeof obj;
       throw new TypeError(`형식 불일치: [${typeDef}]이어야 하는데, [${type}]입니다.`);
@@ -14,6 +14,6 @@ function currying() {
   checkType(String)(42);
 }
 
-export {
+module.exports = {
   currying
 };
