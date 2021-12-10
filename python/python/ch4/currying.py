@@ -11,4 +11,4 @@ def currying():
     
     print(check_type(str)('Curry'))
     print(check_type(int)(3))
-    check_type(str)(42)
+    # check_type(str)(42)

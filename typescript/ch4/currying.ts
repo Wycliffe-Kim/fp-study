@@ -11,7 +11,7 @@ function currying() {
 
   console.log(checkType(String)('Curry'));
   console.log(checkType(Number)(3));
-  checkType(String)(42);
+  // checkType(String)(42);
 }
 
 export {

@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/Wycliffe-Kim/fp-study#readme",
   "dependencies": {
+    "@types/immutable": "^3.8.7",
     "@types/lodash": "^4.14.177",
     "@types/node": "^16.11.11",
     "@types/ramda": "^0.27.60",
+    "immutable": "^4.0.0",
     "lodash": "^4.17.21",
     "lodash-lens": "^1.0.3",
     "ramda": "^0.27.1",
