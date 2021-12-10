@@ -1,1 +1,6 @@
-console.log('a');
+import main from '../main';
+import { currying } from './currying';
+
+main([
+  currying
+]);

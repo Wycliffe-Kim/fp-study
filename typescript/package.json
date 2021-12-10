@@ -5,10 +5,11 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "start": "yarn ch1 && yarn ch2 && yarn ch3",
+    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4",
     "ch1": "cd ch1 && ts-node index.ts",
     "ch2": "cd ch2 && ts-node index.ts",
-    "ch3": "cd ch3 && ts-node index.ts"
+    "ch3": "cd ch3 && ts-node index.ts",
+    "ch4": "cd ch4 && ts-node index.ts"
   },
   "repository": {
     "type": "git",
@@ -23,16 +24,18 @@
   "dependencies": {
     "@types/lodash": "^4.14.177",
     "@types/node": "^16.11.11",
+    "@types/ramda": "^0.27.60",
     "lodash": "^4.17.21",
     "lodash-lens": "^1.0.3",
+    "ramda": "^0.27.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   },
   "devDependencies": {
-    "eslint-config-wycliffe": "^1.0.4",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "eslint": "^8.4.1",
+    "eslint-config-wycliffe": "^1.0.4",
     "eslint-plugin-import": "^2.25.3",
     "typescript": "^4.5.2"
   }
