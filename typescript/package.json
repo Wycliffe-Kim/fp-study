@@ -5,11 +5,12 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4",
+    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4 && yarn ch5",
     "ch1": "cd ch1 && ts-node index.ts",
     "ch2": "cd ch2 && ts-node index.ts",
     "ch3": "cd ch3 && ts-node index.ts",
-    "ch4": "cd ch4 && ts-node index.ts"
+    "ch4": "cd ch4 && ts-node index.ts",
+    "ch5": "cd ch5 && ts-node index.ts"
   },
   "repository": {
     "type": "git",
