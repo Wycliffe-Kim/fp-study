@@ -1,5 +1,7 @@
 const _ = require('lodash');
 const fp = require('lodash/fp');
+const { normalize } = require('./normalize');
+const { trim } = require('./trim');
 
 function compose1() {
   const str = 'We can only see a short distance ' +
@@ -26,8 +28,6 @@ function compose2() {
 }
 
 function compose3() {
-  const trim = (str) => str.replace(/^\s*|\s*$/g, '');
-  const normalize = (str) => str.replace(/\-/g, '');
   const validLength = (len, str) => str.length == len;
   const checkLengthSsn = _.partial(validLength, 9);
 

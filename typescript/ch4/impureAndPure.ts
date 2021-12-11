@@ -1,7 +1,5 @@
 import { StudentDB } from '../ch1/db';
 import fp from 'lodash/fp';
-import { normalize } from './normalize';
-import { trim } from './trim';
 
 function impureAndPure() {
   // 다음은 불순한 함수다. 이유는 외부 데이터인 db에서 데이터를 읽어오기 때문이다.
