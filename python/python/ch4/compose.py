@@ -2,6 +2,8 @@ import re
 import toolz as tz
 import pydash
 import operator
+from .normalize import normalize
+from .trim import trim
 
 def compose1():
     s = str('We can only see a short distance '
@@ -27,8 +29,6 @@ def compose2():
     print(smartest_student(students, grades))
     
 def compose3():
-    trim = lambda str: re.search('^\s*|\s*$', str).string
-    normalize = lambda str: ''.join(re.split('\-', str))
     valid_length = lambda length, str: len(str) == length
     check_length_ssn = pydash.partial(valid_length, 9)
     
