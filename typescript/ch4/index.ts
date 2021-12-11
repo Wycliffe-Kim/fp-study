@@ -1,10 +1,12 @@
 import main from '../main';
 import { currying } from './currying';
-import { compose } from './compose';
+import { compose1, compose2, compose3 } from './compose';
 import { partial } from './partial';
 
 main([
   currying,
-  compose,
+  compose1,
+  compose2,
+  compose3,
   partial
 ]);
