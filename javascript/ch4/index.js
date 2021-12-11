@@ -1,10 +1,12 @@
 const { main } = require('../main');
 const { currying } = require('./currying');
-const { compose } = require('./compose');
+const { compose1, compose2, compose3 } = require('./compose');
 const { partial } = require('./partial');
 
 main([
   currying,
-  compose,
+  compose1,
+  compose2,
+  compose3,
   partial
 ]);
