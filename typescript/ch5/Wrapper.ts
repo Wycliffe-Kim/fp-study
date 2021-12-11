@@ -1,6 +1,12 @@
-function Wrapper(value: any) {
-  type WrapperFunc = (value: any) => any;
+type WrapperFunc = (value: any) => any;
 
+interface WrapperReturn {
+  map(f: WrapperFunc): any;
+  fmap(f: WrapperFunc): any;
+  toString(): string;
+}
+
+function Wrapper(value: any) {
   let _value = value;
 
   return {
@@ -19,5 +25,6 @@ function Wrapper(value: any) {
 }
 
 export {
+  WrapperReturn,
   Wrapper
 };
