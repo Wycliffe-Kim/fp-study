@@ -21,7 +21,7 @@ const partialFunction = (a) => {
 function partial() {
   // 타입스크립트에서는 프로토타입 확장이 깔끔하지 못하다..ㅜ
   (String.prototype as any).first = _.partial(String.prototype.substring, 0);
-  console.log(('Funtional Programming' as any).first(3));
+  console.log(('Functional Programming' as any).first(3));
 }
 
 export {
