@@ -10,14 +10,25 @@ interface MonadWrapperReturn {
 function MonadWrapper(value: any): MonadWrapperReturn {
   let _value = value;
 
+  function instanceOfMonadWrapperReturn(obj: any): obj is MonadWrapperReturn {
+    console.log(obj instanceof MonadWrapper);
+    return obj instanceof MonadWrapper
+    return (
+      ('map' in obj) &&
+      ('join' in obj) &&
+      ('get' in obj) &&
+      ('toString' in obj)
+    );
+  }
+
   return {
     map(f: MonadWrapperFunc) {
-      return f(_value);
+      return MonadWrapperOf(f(_value));
     },
 
     join() {
-      if (!(_value instanceof MonadWrapperReturn)) {
-
+      if (!(instanceOfMonadWrapperReturn(_value))) {
+        return this;
       }
       
       return (_value as MonadWrapperReturn).join();
@@ -33,7 +44,10 @@ function MonadWrapper(value: any): MonadWrapperReturn {
   }
 }
 
+const MonadWrapperOf = (_value: any) => MonadWrapper(_value);
+
 export {
-  WrapperReturn,
-  Wrapper
+  MonadWrapperReturn,
+  MonadWrapper,
+  MonadWrapperOf
 };
