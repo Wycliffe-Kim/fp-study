@@ -4,6 +4,8 @@ import { findFromDB, StudentDB } from '../ch1/db';
 import { MaybeFactory } from './MaybeFactory';
 import { lift } from './lift';
 import { EitherFactory } from './EitherFactory';
+import { IO } from './IO';
+import _ from 'lodash';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
@@ -52,10 +54,22 @@ function monadEither() {
   console.log(safeFindStudent('444-44-4444').map(fp.prop('ssn')));
 }
 
+function monadIO() {
+  const read = fp.curry((db: StudentDB, id: string) => () => findFromDB(db, id));
+  const write = fp.curry((error: boolean, message: string) => console.log(error ? 'error' : 'info', message));
+
+  const ioChain = IO.from(read(new StudentDB(), '444-44-4444'))
+    .map(fp.prop('firstname'))
+    .map(_.startCase)
+    .map(write(false));
+  ioChain.run();
+}
+
 export {
   monad1,
   monad2,
   monadMaybe,
   monadLift,
-  monadEither
+  monadEither,
+  monadIO
 };
