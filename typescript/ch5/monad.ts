@@ -8,7 +8,9 @@ import { IO } from './IO';
 import _ from 'lodash';
 import { normalize } from '../ch4/normalize';
 import { trim } from '../ch4/trim';
-import monet from 'monet';
+import { WrapperFunc } from './WrapperFunc';
+import { Just } from './Just';
+import { Nothing } from './Nothing';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
@@ -88,6 +90,31 @@ function monadChain() {
   console.log(showStudent('444-44-4444'));
 }
 
+function monacCompose() {
+  const validLength = (len: number, str: string) => str.length == len;
+  const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? EitherFactory.right(ssn) : EitherFactory.left('잘못된 ssn입니다');
+  const safeFindObject = fp.curry((db: StudentDB, id: string) => {
+    const val = findFromDB(db, id);
+    return val ? EitherFactory.right(val) : EitherFactory.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
+  });
+  const findStudent = safeFindObject(new StudentDB());
+  const cleanInput = fp.compose(normalize, trim);  
+  
+  const map = fp.curry((f: WrapperFunc, container: Just | Nothing) => container.map(f));
+  const chain = fp.curry((f: WrapperFunc, container: Just | Nothing) => container.chain(f));
+  const log = (message: string) => () => console.log(message);
+  
+  const showStudent = fp.compose(
+    fp.tap(log('레코드 조회 성공')),
+    chain(findStudent),
+    fp.tap(log('입력 값이 정상입니다')),
+    chain(checkLengthSsn),
+    lift(cleanInput)
+  );
+
+  showStudent('444-44-4444').orElse(console.log);
+}
+
 export {
   monad1,
   monad2,
@@ -95,5 +122,6 @@ export {
   monadLift,
   monadEither,
   monadIO,
-  monadChain
+  monadChain,
+  monacCompose
 };
