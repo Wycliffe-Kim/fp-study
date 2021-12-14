@@ -1,11 +1,12 @@
 import { Maybe } from './Maybe';
+import { MaybeFactory } from './MaybeFactory';
 import { WrapperFunc } from './WrapperFunc';
 
-class Just /* extends Maybe */ {
+class Just extends Maybe {
   protected _value: any;
 
   constructor(value: any) {
-    // super();
+    super();
     this._value = value;
   }
 
@@ -14,7 +15,7 @@ class Just /* extends Maybe */ {
   }
 
   map(f: WrapperFunc) {
-    return Maybe.fromNullable(f(this._value));
+    return MaybeFactory.fromNullable(f(this._value));
   }
 
   getOrElse(other?: any) {
@@ -22,7 +23,7 @@ class Just /* extends Maybe */ {
   }
 
   filter(f: WrapperFunc) {
-    Maybe.fromNullable(f(this._value) ? this._value : null);
+    MaybeFactory.fromNullable(f(this._value) ? this._value : null);
   }
 
   chain(f: WrapperFunc) {

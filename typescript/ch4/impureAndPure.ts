@@ -16,8 +16,8 @@ function impureAndPure() {
 
   const db = new StudentDB();
   const findStudent = findObject(db);
-  const fullInfo = (student: { firstname: string, lastname: string, ssn: string }) => 
-                      `${student.ssn}, ${student.firstname}, ${student.lastname}`;
+  const fullInfo = (student: { firstname: string, lastname: string, ssn: string }) =>
+    `${student.ssn}, ${student.firstname}, ${student.lastname}`;
   const append = fp.curry((error: boolean, info: string) => console.log(error ? 'error' : 'info', info));
 
   const showStudent = fp.compose(
@@ -31,4 +31,4 @@ function impureAndPure() {
 
 export {
   impureAndPure
-}
+};

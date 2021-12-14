@@ -11,7 +11,7 @@ function Empty() {
     toString() {
       return 'Empty()';
     }
-  }
+  };
 }
 
 export {

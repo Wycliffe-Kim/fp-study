@@ -7,7 +7,7 @@ interface WrapperReturn {
 }
 
 function Wrapper(value: any) {
-  let _value = value;
+  const _value = value;
 
   return {
     map(f: WrapperFunc) {
@@ -21,7 +21,7 @@ function Wrapper(value: any) {
     toString() {
       return `Wrapper(${_value})`;
     }
-  }
+  };
 }
 
 export {

@@ -1,7 +1,7 @@
-// import { Maybe } from './Maybe';
+import { Maybe } from './Maybe';
 import { WrapperFunc } from './WrapperFunc';
 
-class Nothing /* extends Maybe */ {
+class Nothing extends Maybe {
   protected _value: any;
 
   map(f: WrapperFunc) {

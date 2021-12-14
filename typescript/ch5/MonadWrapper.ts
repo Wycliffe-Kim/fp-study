@@ -1,4 +1,4 @@
-import { WrapperFunc } from "./WrapperFunc";
+import { WrapperFunc } from './WrapperFunc';
 
 class MonadWrapper {
   protected _value: any;
@@ -19,7 +19,7 @@ class MonadWrapper {
     if (!(this._value instanceof MonadWrapper)) {
       return this;
     }
-    
+
     return this._value.join();
   }
 

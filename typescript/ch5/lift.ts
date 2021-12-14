@@ -1,6 +1,6 @@
 import fp from 'lodash/fp';
-import { Maybe } from './Maybe';
+import { MaybeFactory } from './MaybeFactory';
 import { WrapperFunc } from './WrapperFunc';
 
-const lift = fp.curry((f: WrapperFunc, value: any) => Maybe.fromNullable(value).map(f));
+const lift = fp.curry((f: WrapperFunc, value: any) => MaybeFactory.fromNullable(value).map(f));
 export { lift };
