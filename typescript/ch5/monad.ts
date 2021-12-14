@@ -6,6 +6,9 @@ import { lift } from './lift';
 import { EitherFactory } from './EitherFactory';
 import { IO } from './IO';
 import _ from 'lodash';
+import { normalize } from '../ch4/normalize';
+import { trim } from '../ch4/trim';
+import monet from 'monet';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
@@ -13,6 +16,8 @@ function monad1() {
     .map(fp.identity);
 
   console.log(data.join().get());
+
+  
 }
 
 function monad2() {
@@ -65,11 +70,30 @@ function monadIO() {
   ioChain.run();
 }
 
+function monadChain() {
+  const validLength = (len: number, str: string) => str.length == len;
+  const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? EitherFactory.right(ssn) : EitherFactory.left('잘못된 ssn입니다');
+  const safeFindObject = fp.curry((db: StudentDB, id: string) => {
+    const val = findFromDB(db, id);
+    return val ? EitherFactory.right(val) : EitherFactory.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
+  });
+  const findStudent = safeFindObject(new StudentDB());
+  const cleanInput = fp.compose(normalize, trim);
+
+  const showStudent = (ssn: string) => EitherFactory.fromNullable(ssn)
+    .map(cleanInput)
+    .chain(checkLengthSsn)
+    .chain(findStudent);
+
+  console.log(showStudent('444-44-4444'));
+}
+
 export {
   monad1,
   monad2,
   monadMaybe,
   monadLift,
   monadEither,
-  monadIO
+  monadIO,
+  monadChain
 };
