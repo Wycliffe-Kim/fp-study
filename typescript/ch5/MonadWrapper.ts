@@ -1,53 +1,37 @@
 type MonadWrapperFunc = (value: any) => any;
 
-interface MonadWrapperReturn {
-  map(f: MonadWrapperFunc): any;
-  join(): MonadWrapperReturn;
-  get(): any;
-  toString(): string;
-}
+class MonadWrapper {
+  protected _value: any;
 
-function MonadWrapper(value: any): MonadWrapperReturn {
-  let _value = value;
-
-  function instanceOfMonadWrapperReturn(obj: any): obj is MonadWrapperReturn {
-    console.log(obj instanceof MonadWrapper);
-    return obj instanceof MonadWrapper
-    return (
-      ('map' in obj) &&
-      ('join' in obj) &&
-      ('get' in obj) &&
-      ('toString' in obj)
-    );
+  static of(value: any) {
+    return new MonadWrapper(value);
   }
 
-  return {
-    map(f: MonadWrapperFunc) {
-      return MonadWrapperOf(f(_value));
-    },
+  constructor(value: any) {
+    this._value = value;
+  }
 
-    join() {
-      if (!(instanceOfMonadWrapperReturn(_value))) {
-        return this;
-      }
-      
-      return (_value as MonadWrapperReturn).join();
-    },
+  map(f: MonadWrapperFunc) {
+    return MonadWrapper.of(f(this._value));
+  }
 
-    get() {
-      return _value;
-    },
-
-    toString() {
-      return `Wrapper(${_value})`;
+  join(): MonadWrapper {
+    if (!(this._value instanceof MonadWrapper)) {
+      return this;
     }
+    
+    return this._value.join();
+  }
+
+  get() {
+    return this._value;
+  }
+
+  toString() {
+    return `Wrapper(${this._value})`;
   }
 }
-
-const MonadWrapperOf = (_value: any) => MonadWrapper(_value);
 
 export {
-  MonadWrapperReturn,
-  MonadWrapper,
-  MonadWrapperOf
+  MonadWrapper
 };
