@@ -1,7 +1,7 @@
 import { MonadWrapper } from './MonadWrapper';
 import fp from 'lodash/fp';
 import { findFromDB, StudentDB } from '../ch1/db';
-import { Student_fp } from '../ch2/Student';
+import { Maybe } from './Maybe';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
@@ -22,7 +22,17 @@ function monad2() {
   console.log(studentFirstName('444-44-4444').join().get());
 }
 
+function monad3() {
+  const safeFindObject = fp.curry((db: StudentDB, id: string) => Maybe.fromNullable(findFromDB(db, id)));
+  const safeFindStudent = safeFindObject(new StudentDB());
+  const address = safeFindStudent('444-44-4444').map(fp.prop('address')).getOrElse('주소가 없습니다.');
+  const ssn = safeFindStudent('444-44-4444').map(fp.prop('ssn')).getOrElse('SSN이 없습니다.');
+
+  console.log(address, ssn);
+}
+
 export {
   monad1,
-  monad2
+  monad2,
+  monad3
 };

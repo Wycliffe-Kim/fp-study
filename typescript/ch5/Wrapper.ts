@@ -1,4 +1,4 @@
-type WrapperFunc = (value: any) => any;
+import { WrapperFunc } from './WrapperFunc';
 
 interface WrapperReturn {
   map(f: WrapperFunc): any;

@@ -1,4 +1,4 @@
-type MonadWrapperFunc = (value: any) => any;
+import { WrapperFunc } from "./WrapperFunc";
 
 class MonadWrapper {
   protected _value: any;
@@ -11,7 +11,7 @@ class MonadWrapper {
     this._value = value;
   }
 
-  map(f: MonadWrapperFunc) {
+  map(f: WrapperFunc) {
     return MonadWrapper.of(f(this._value));
   }
 
