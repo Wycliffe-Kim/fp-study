@@ -1,7 +1,13 @@
-function Wrapper(value: any) {
-  type WrapperFunc = (value: any) => any;
+import { WrapperFunc } from './WrapperFunc';
 
-  let _value = value;
+interface WrapperReturn {
+  map(f: WrapperFunc): any;
+  fmap(f: WrapperFunc): any;
+  toString(): string;
+}
+
+function Wrapper(value: any) {
+  const _value = value;
 
   return {
     map(f: WrapperFunc) {
@@ -15,9 +21,10 @@ function Wrapper(value: any) {
     toString() {
       return `Wrapper(${_value})`;
     }
-  }
+  };
 }
 
 export {
+  WrapperReturn,
   Wrapper
 };

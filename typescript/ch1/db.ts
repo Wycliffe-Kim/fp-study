@@ -1,22 +1,22 @@
 class StudentDB {
   students = [
     {
-      firstname: 'student',
+      firstname: 'studentA',
       lastname: 'A',
       ssn: '111-11-1111'
     },
     {
-      firstname: 'student',
+      firstname: 'studentB',
       lastname: 'B',
       ssn: '222-22-2222'
     },
     {
-      firstname: 'student',
+      firstname: 'studentC',
       lastname: 'C',
       ssn: '333-33-3333'
     },
     {
-      firstname: 'student',
+      firstname: 'studentD',
       lastname: 'D',
       ssn: '444-44-4444'
     },
@@ -27,6 +27,9 @@ class StudentDB {
   };
 }
 
+const findFromDB = (db: StudentDB, ssn: string) => db.students.filter((student) => student.ssn === ssn)[0];
+
 export {
-  StudentDB
+  StudentDB,
+  findFromDB
 };
