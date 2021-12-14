@@ -11,6 +11,8 @@ import { trim } from '../ch4/trim';
 import { WrapperFunc } from './WrapperFunc';
 import { Just } from './Just';
 import { Nothing } from './Nothing';
+import { Right } from './Right';
+import { Left } from './Left';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
@@ -100,19 +102,20 @@ function monacCompose() {
   const findStudent = safeFindObject(new StudentDB());
   const cleanInput = fp.compose(normalize, trim);  
   
-  const map = fp.curry((f: WrapperFunc, container: Just | Nothing) => container.map(f));
-  const chain = fp.curry((f: WrapperFunc, container: Just | Nothing) => container.chain(f));
-  const log = (message: string) => () => console.log(message);
+  const map = fp.curry((f: WrapperFunc, container: Just | Nothing | Right | Left) => container.map(f));
+  const chain = fp.curry((f: WrapperFunc, container: Just | Nothing | Right | Left) => container.chain(f));
+  const getOrElse = fp.curry((message: string, container: Just | Nothing | Right | Left) => container.getOrElse(message));
   
   const showStudent = fp.compose(
-    fp.tap(log('레코드 조회 성공')),
-    chain(findStudent),
-    fp.tap(log('입력 값이 정상입니다')),
-    chain(checkLengthSsn),
-    lift(cleanInput)
+    getOrElse('찾을 수 없습니다'),
+    fp.tap(console.log),
+    map(fp.prop('address')),
+    fp.tap(console.log),
+    findStudent,
   );
 
-  showStudent('444-44-4444').orElse(console.log);
+  const result = showStudent('444-44-4444');
+  console.log(result);
 }
 
 export {
