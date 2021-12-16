@@ -11,16 +11,16 @@ class Nothing(Maybe):
     def is_nothing(self):
         return True
       
-    def map(self, f = None):
+    def map(self, f=None):
         return self
       
     def get_or_else(self, other):
         return other
       
-    def filter(self, f = None):
+    def filter(self, f=None):
         return self._value
       
-    def chain(self, f = None):
+    def chain(self, f=None):
         return self
       
     def to_string(self):

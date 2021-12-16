@@ -5,7 +5,7 @@ class Tree:
         self._root = root
         
     @staticmethod
-    def map(node, fn, tree = None):
+    def map(node, fn, tree=None):
         node.value = fn(node.value)
         if tree == None:
             tree = Tree(node)

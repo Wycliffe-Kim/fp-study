@@ -17,7 +17,7 @@ class Just(Maybe):
     def map(self, f):
         return MaybeFactory.from_nullable(f(self._value))
       
-    def get_or_else(self, other = None):
+    def get_or_else(self, other=None):
         return self._value
       
     def filter(self, f):

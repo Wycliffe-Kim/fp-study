@@ -1,8 +1,8 @@
 class Empty:
-    def map(self, val = None):
+    def map(self, val=None):
         return self
     
-    def fmap(self, val = None):
+    def fmap(self, val=None):
         return Empty()
       
     def to_string(self):
