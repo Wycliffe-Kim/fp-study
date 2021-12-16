@@ -1,12 +1,11 @@
-const { Right } = require('./Right');
-const { Left } = require('./Left');
-
 class EitherFactory {
   static left(value) {
+    const { Left } = require('./Left');
     return new Left(value);
   }
 
   static right(value) {
+    const { Right } = require('./Right');
     return new Right(value);
   }
 

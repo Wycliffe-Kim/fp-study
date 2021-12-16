@@ -1,12 +1,11 @@
-const { Just } = require('./Just');
-const { Nothing } = require('./Nothing');
-
 class MaybeFactory {
   static just(value) {
+    const { Just } = require('./Just');
     return new Just(value);
   }
 
   static nothing() {
+    const { Nothing } = require('./Nothing');
     return new Nothing();
   }
 
@@ -20,5 +19,5 @@ class MaybeFactory {
 }
 
 module.exports = {
-  MaybeFactory, 
+  MaybeFactory
 };
