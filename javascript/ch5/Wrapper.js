@@ -1,5 +1,5 @@
 function Wrapper(value) {
-  let _value = value;
+  const _value = value;
 
   return {
     map(f) {
@@ -13,7 +13,7 @@ function Wrapper(value) {
     toString() {
       return `Wrapper(${_value})`;
     }
-  }
+  };
 }
 
 module.exports = {
