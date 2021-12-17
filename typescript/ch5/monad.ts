@@ -1,18 +1,15 @@
 import { MonadWrapper } from './MonadWrapper';
 import fp from 'lodash/fp';
 import { findFromDB, StudentDB } from '../ch1/db';
-import { MaybeFactory } from './MaybeFactory';
 import { lift } from './lift';
-import { EitherFactory } from './EitherFactory';
 import { IO } from './IO';
 import _ from 'lodash';
 import { normalize } from '../ch4/normalize';
 import { trim } from '../ch4/trim';
 import { WrapperFunc } from './WrapperFunc';
-import { Just } from './Just';
-import { Nothing } from './Nothing';
-import { Right } from './Right';
-import { Left } from './Left';
+import { Maybe, Just, Nothing } from './Maybe';
+import { Either, Right, Left } from './Either';
+import R, { F } from 'ramda';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
@@ -20,8 +17,6 @@ function monad1() {
     .map(fp.identity);
 
   console.log(data.join().get());
-
-  
 }
 
 function monad2() {
@@ -36,7 +31,7 @@ function monad2() {
 }
 
 function monadMaybe() {
-  const safeFindObject = fp.curry((db: StudentDB, id: string) => MaybeFactory.fromNullable(findFromDB(db, id)));
+  const safeFindObject = fp.curry((db: StudentDB, id: string) => Maybe.fromNullable(findFromDB(db, id)));
   const safeFindStudent = safeFindObject(new StudentDB());
   const address = safeFindStudent('444-44-4444').map(fp.prop('address')).getOrElse('주소가 없습니다.');
   const ssn = safeFindStudent('444-44-4444').map(fp.prop('ssn')).getOrElse('SSN이 없습니다.');
@@ -57,7 +52,7 @@ function monadLift() {
 }
 
 function monadEither() {
-  const safeFindObject = fp.curry((db: StudentDB, id: string) => EitherFactory.fromNullable(findFromDB(db, id)));
+  const safeFindObject = fp.curry((db: StudentDB, id: string) => Either.fromNullable(findFromDB(db, id)));
   const safeFindStudent = safeFindObject(new StudentDB());
   safeFindStudent('444-44-4444').map(fp.prop('address')).orElse((val) => console.log('error', val));
   console.log(safeFindStudent('444-44-4444').map(fp.prop('ssn')));
@@ -76,15 +71,15 @@ function monadIO() {
 
 function monadChain() {
   const validLength = (len: number, str: string) => str.length == len;
-  const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? EitherFactory.right(ssn) : EitherFactory.left('잘못된 ssn입니다');
+  const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? Either.right(ssn) : Either.left('잘못된 ssn입니다');
   const safeFindObject = fp.curry((db: StudentDB, id: string) => {
     const val = findFromDB(db, id);
-    return val ? EitherFactory.right(val) : EitherFactory.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
+    return val ? Either.right(val) : Either.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
   });
   const findStudent = safeFindObject(new StudentDB());
   const cleanInput = fp.compose(normalize, trim);
 
-  const showStudent = (ssn: string) => EitherFactory.fromNullable(ssn)
+  const showStudent = (ssn: string) => Either.fromNullable(ssn)
     .map(cleanInput)
     .chain(checkLengthSsn)
     .chain(findStudent);
@@ -94,10 +89,10 @@ function monadChain() {
 
 function monacCompose() {
   const validLength = (len: number, str: string) => str.length == len;
-  const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? EitherFactory.right(ssn) : EitherFactory.left('잘못된 ssn입니다');
+  const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? Either.right(ssn) : Either.left('잘못된 ssn입니다');
   const safeFindObject = fp.curry((db: StudentDB, id: string) => {
     const val = findFromDB(db, id);
-    return val ? EitherFactory.right(val) : EitherFactory.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
+    return val ? Either.right(val) : Either.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
   });
   const findStudent = safeFindObject(new StudentDB());
   const cleanInput = fp.compose(normalize, trim);  
@@ -105,12 +100,12 @@ function monacCompose() {
   const map = fp.curry((f: WrapperFunc, container: Just | Nothing | Right | Left) => container.map(f));
   const chain = fp.curry((f: WrapperFunc, container: Just | Nothing | Right | Left) => container.chain(f));
   const getOrElse = fp.curry((message: string, container: Just | Nothing | Right | Left) => container.getOrElse(message));
-  
+
   const showStudent = fp.compose(
     getOrElse('찾을 수 없습니다'),
-    fp.tap(console.log),
-    map(fp.prop('address')),
-    fp.tap(console.log),
+    R.tap(console.log),
+    R.map(fp.prop('address')),
+    R.tap(console.log),
     findStudent,
   );
 
