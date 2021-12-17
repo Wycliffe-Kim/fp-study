@@ -1,13 +1,15 @@
-from .Just import Just
-from .Nothing import Nothing
+# from .Just import Just
+# from .Nothing import Nothing
 
 class MaybeFactory:
     @staticmethod
     def just(value):
+        from .Just import Just
         return Just(value)
       
     @staticmethod
     def nothing():
+        from .Nothing import Nothing
         return Nothing()
       
     @staticmethod

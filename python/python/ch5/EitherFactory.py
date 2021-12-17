@@ -1,13 +1,15 @@
-from .Left import Left
-from .Right import Right
+# from .Left import Left
+# from .Right import Right
 
 class EitherFactory:
     @staticmethod
     def left(value):
+        from .Left import Left
         return Left(value)
       
     @staticmethod
     def right(value):
+        from .Right import Right
         return Right(value)
       
     @staticmethod

@@ -18,5 +18,5 @@ class MonadWrapper:
     def get(self):
         return self._value
       
-    def to_string(self):
+    def __str__(self):
         return f'Wrapper({self._value})'

@@ -23,5 +23,5 @@ class Nothing(Maybe):
     def chain(self, f=None):
         return self
       
-    def to_string(self):
+    def __str__(self):
         return 'Maybe.Nothing'

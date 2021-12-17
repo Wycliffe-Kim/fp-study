@@ -29,4 +29,8 @@ class StudentDB:
         return list(tz.filter(lambda student: student['ssn'] == ssn, self.students))[0]
     
 def find_from_db(db, ssn):
-    list(tz.filter(lambda student: student['ssn'] == ssn, db.students))[0]
+    students = list(tz.filter(lambda student: student['ssn'] == ssn, db.students))
+    if len(students) == 0:
+        return None
+    
+    return students[0]

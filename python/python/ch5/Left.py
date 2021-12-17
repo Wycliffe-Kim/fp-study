@@ -23,5 +23,5 @@ class Left(Either):
     def filter(self, f=None):
         return self
       
-    def to_string(self):
+    def __str__(self):
         return f'Either.Left({self._value})'

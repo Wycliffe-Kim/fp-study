@@ -20,5 +20,5 @@ class Right(Either):
     def filter(self, f):
         return EitherFactory.from_nullable(self._value if f(self._value) else None)
       
-    def to_string(self):
+    def __str__(self):
         return f'Either.Right({self._value})'

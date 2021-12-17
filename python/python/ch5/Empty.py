@@ -4,6 +4,6 @@ class Empty:
     
     def fmap(self, val=None):
         return Empty()
-      
-    def to_string(self):
+    
+    def __str__(self):
         return 'Empty()'

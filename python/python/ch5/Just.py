@@ -3,7 +3,6 @@ from .MaybeFactory import MaybeFactory
 
 class Just(Maybe):
     def __init__(self, value):
-        super().__init__(self)
         self._value = value
         
     @property
@@ -26,5 +25,5 @@ class Just(Maybe):
     def chain(self, f):
         return f(self._value)
       
-    def to_string(self):
+    def __str__(self):
         return f'Maybe.Just({self._value})'
