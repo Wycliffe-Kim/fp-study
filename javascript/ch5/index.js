@@ -1,6 +1,6 @@
 const { main } = require('../main');
 const { functor1, functor2 } = require('./functor');
-const { monacCompose, monad1, monad2, monadChain, monadEither, monadIO, monadLift, monadMaybe } = require('./monad');
+const { monadCompose, monad1, monad2, monadChain, monadEither, monadIO, monadLift, monadMaybe } = require('./monad');
 
 main([
   functor1,
@@ -12,5 +12,5 @@ main([
   monadEither,
   monadIO,
   monadChain,
-  monacCompose
+  monadCompose
 ]);

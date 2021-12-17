@@ -4,22 +4,22 @@ class StudentDB:
     def __init__(self):
         self.students = [
             {
-                'firstname': 'student',
+                'firstname': 'studentA',
                 'lastname': 'A',
                 'ssn': '111-11-1111'
             },
             {
-                'firstname': 'student',
+                'firstname': 'studentB',
                 'lastname': 'B',
                 'ssn': '222-22-2222'
             },
             {
-                'firstname': 'student',
+                'firstname': 'studentC',
                 'lastname': 'C',
                 'ssn': '333-33-3333'
             },
             {
-                'firstname': 'student',
+                'firstname': 'studentD',
                 'lastname': 'D',
                 'ssn': '444-44-4444'
             },
@@ -27,3 +27,10 @@ class StudentDB:
         
     def find(self, ssn):
         return list(tz.filter(lambda student: student['ssn'] == ssn, self.students))[0]
+    
+def find_from_db(db, ssn):
+    students = list(tz.filter(lambda student: student['ssn'] == ssn, db.students))
+    if len(students) == 0:
+        return None
+    
+    return students[0]
