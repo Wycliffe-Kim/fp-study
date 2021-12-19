@@ -1,5 +1,5 @@
 const fp = require('lodash/fp');
-const { MaybeFactory } = require('./MaybeFactory');
+const { Maybe } = require('./Maybe');
 
-const lift = fp.curry((f, value) => MaybeFactory.fromNullable(value).map(f));
+const lift = fp.curry((f, value) => Maybe.fromNullable(value).map(f));
 module.exports = { lift };
