@@ -1,4 +1,4 @@
 import pydash
-from .MaybeFactory import MaybeFactory
+from .Maybe import Maybe
 
-lift = pydash.curry(lambda f, value: MaybeFactory.from_nullable(value).map(f))
+lift = pydash.curry(lambda f, value: Maybe.from_nullable(value).map(f))
