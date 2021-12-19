@@ -10,7 +10,8 @@
     "ch2": "cd ch2 && ts-node index.ts",
     "ch3": "cd ch3 && ts-node index.ts",
     "ch4": "cd ch4 && ts-node index.ts",
-    "ch5": "cd ch5 && ts-node index.ts"
+    "ch5": "cd ch5 && ts-node index.ts",
+    "ch6": "cd ch6 && ts-node index.ts"
   },
   "repository": {
     "type": "git",

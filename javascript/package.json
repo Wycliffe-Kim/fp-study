@@ -10,7 +10,8 @@
     "ch2": "cd ch2 && node index.js",
     "ch3": "cd ch3 && node index.js",
     "ch4": "cd ch4 && node index.js",
-    "ch5": "cd ch5 && node index.js"
+    "ch5": "cd ch5 && node index.js",
+    "ch6": "cd ch6 && node index.js"
   },
   "repository": {
     "type": "git",
