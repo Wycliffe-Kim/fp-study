@@ -3,9 +3,9 @@ import toolz as tz
 
 from .MonadWrapper import MonadWrapper
 from ..ch1.db import StudentDB, find_from_db
-from .MaybeFactory import MaybeFactory
+from .Maybe import Maybe
 from .lift import lift
-from .EitherFactory import EitherFactory
+from .Either import Either
 from .IO import IO
 from ..ch4.normalize import normalize
 from ..ch4.trim import trim
@@ -29,7 +29,7 @@ def monad2():
     print(student_first_name('444-44-4444').join().get())
     
 def monad_maybe():
-    safe_find_object = pydash.curry(lambda db, id: MaybeFactory.from_nullable(find_from_db(db, id)))
+    safe_find_object = pydash.curry(lambda db, id: Maybe.from_nullable(find_from_db(db, id)))
     safe_find_student = safe_find_object(StudentDB())
     address = safe_find_student('444-44-4444').map(prop('address')).get_or_else('주소가 없습니다.')
     ssn = safe_find_student('444-44-4444').map(prop('ssn')).get_or_else('SSN이 없습니다.')
@@ -47,7 +47,7 @@ def monad_lift():
     print(address, ssn)
   
 def monad_either():
-    safe_find_object = pydash.curry(lambda db, id: EitherFactory.from_nullable(find_from_db(db, id)))
+    safe_find_object = pydash.curry(lambda db, id: Either.from_nullable(find_from_db(db, id)))
     safe_find_student = safe_find_object(StudentDB())
     safe_find_student('444-44-4444').map(prop('address')).or_else(lambda val: print('error', val))
     print(safe_find_student('444-44-4444').map(prop('ssn')).get_or_else('SSN이 없습니다.'))
@@ -64,16 +64,16 @@ def monad_io():
   
 def monad_chain():
     valid_length = lambda length, string: len(string) == length
-    check_length_ssn = lambda ssn: EitherFactory.right(ssn) if valid_length(9, ssn) else EitherFactory.left('잘못된 ssn입니다.')
+    check_length_ssn = lambda ssn: Either.right(ssn) if valid_length(9, ssn) else Either.left('잘못된 ssn입니다.')
     
     def safe_find_object_curry(db, id):
         val = find_from_db(db, id)
-        return EitherFactory.right(val) if val else EitherFactory.left(f'ID가 {id}인 객체를 찾을 수 없습니다.')
+        return Either.right(val) if val else Either.left(f'ID가 {id}인 객체를 찾을 수 없습니다.')
     safe_find_object = pydash.curry(safe_find_object_curry)
     find_student = safe_find_object(StudentDB())
     clean_input = tz.compose(normalize, trim)
     
-    show_student = lambda ssn: (EitherFactory
+    show_student = lambda ssn: (Either
       .from_nullable(ssn)
       .map(clean_input)
       .chain(check_length_ssn)
@@ -83,11 +83,11 @@ def monad_chain():
   
 def monad_compose():
     valid_length = lambda length, string: len(string) == length
-    check_length_ssn = lambda ssn: EitherFactory.right(ssn) if valid_length(9, ssn) else EitherFactory.left('잘못된 ssn입니다.')
+    check_length_ssn = lambda ssn: Either.right(ssn) if valid_length(9, ssn) else Either.left('잘못된 ssn입니다.')
     
     def safe_find_object_curry(db, id):
         val = find_from_db(db, id)
-        return EitherFactory.right(val) if val else EitherFactory.left(f'ID가 {id}인 객체를 찾을 수 없습니다.')
+        return Either.right(val) if val else Either.left(f'ID가 {id}인 객체를 찾을 수 없습니다.')
     safe_find_object = pydash.curry(safe_find_object_curry)
     find_student = safe_find_object(StudentDB())
     clean_input = tz.compose(normalize, trim)
