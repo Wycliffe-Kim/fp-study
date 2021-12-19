@@ -9,7 +9,7 @@ import { trim } from '../ch4/trim';
 import { WrapperFunc } from './WrapperFunc';
 import { Maybe, Just, Nothing } from './Maybe';
 import { Either, Right, Left } from './Either';
-import R, { F } from 'ramda';
+import R from 'ramda';
 
 function monad1() {
   const data = MonadWrapper.of('Hello Monads!')
