@@ -87,7 +87,7 @@ function monadChain() {
   console.log(showStudent('444-44-4444'));
 }
 
-function monacCompose() {
+function monadCompose() {
   const validLength = (len: number, str: string) => str.length == len;
   const checkLengthSsn = (ssn: string) => validLength(9, ssn) ? Either.right(ssn) : Either.left('잘못된 ssn입니다');
   const safeFindObject = fp.curry((db: StudentDB, id: string) => {
@@ -121,5 +121,5 @@ export {
   monadEither,
   monadIO,
   monadChain,
-  monacCompose
+  monadCompose
 };
