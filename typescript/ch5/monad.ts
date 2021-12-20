@@ -95,8 +95,8 @@ function monadCompose() {
     return val ? Either.right(val) : Either.left(`ID가 ${id}인 객체를 찾을 수 없습니다.`);
   });
   const findStudent = safeFindObject(new StudentDB());
-  const cleanInput = fp.compose(normalize, trim);  
-  
+  const cleanInput = fp.compose(normalize, trim);
+
   const map = fp.curry((f: WrapperFunc, container: Just | Nothing | Right | Left) => container.map(f));
   const chain = fp.curry((f: WrapperFunc, container: Just | Nothing | Right | Left) => container.chain(f));
   const getOrElse = fp.curry((message: string, container: Just | Nothing | Right | Left) => container.getOrElse(message));
