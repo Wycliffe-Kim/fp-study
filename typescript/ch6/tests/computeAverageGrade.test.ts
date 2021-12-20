@@ -1,8 +1,19 @@
 import { computeAverageGrade, fork, toLetterGrade } from '../computeAverageGrade';
 import R from 'ramda';
+import fc from 'fast-check';
 
-test('평균 학점을 계산', () => {
+fc.resetConfigureGlobal();
+
+test('computeAverageGrade Example Based Test', () => {
   expect(computeAverageGrade([80, 90, 100])).toBe('A');
+});
+
+test('computeAverageGrade Property Based Test', () => {
+  fc.assert(
+    fc.property(fc.array(fc.integer({ min: 90, max: 100 }), { minLength: 1 }), (data) => {
+      expect(computeAverageGrade(data)).toBe('A');
+    })
+  );
 });
 
 test('toLetterGrade', () => {
