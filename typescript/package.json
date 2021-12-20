@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
     "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4 && yarn ch5 && yarn ch6",
-    "test": "jest --passWithNoTests",
+    "test": "jest --coverage --passWithNoTests",
     "ch1": "cd ch1 && ts-node index.ts",
     "ch2": "cd ch2 && ts-node index.ts",
     "ch3": "cd ch3 && ts-node index.ts",
@@ -50,6 +50,7 @@
     "eslint-plugin-import": "^2.25.3",
     "fast-check": "^2.20.0",
     "jest": "^27.4.5",
+    "ts-jest": "^27.1.2",
     "typescript": "^4.5.2"
   }
 }
