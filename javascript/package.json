@@ -5,7 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4 && yarn ch5",
+    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4 && yarn ch5 && yarn ch6",
+    "test": "jest --coverage --passWithNoTests",
     "ch1": "cd ch1 && node index.js",
     "ch2": "cd ch2 && node index.js",
     "ch3": "cd ch3 && node index.js",
@@ -30,8 +31,13 @@
     "ramda": "^0.27.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-jest": "^27.4.5",
     "eslint": "^8.4.1",
     "eslint-config-wycliffe": "^1.0.4",
-    "eslint-plugin-import": "^2.25.3"
+    "eslint-plugin-import": "^2.25.3",
+    "fast-check": "^2.20.0",
+    "jest": "^27.4.5"
   }
 }
