@@ -1,13 +1,12 @@
 import { StudentDB, findFromDB } from '../../ch1/db';
 
-jest.doMock('../../ch1/db');
-
-let db: StudentDB;
-let fullname: (student: any) => string;
-let result: string;
-let ssn: string;
 
 describe('showStudent', () => {
+  let db: StudentDB;
+  let fullname: (student: any) => string;
+  let result: string;
+  let ssn: string;
+  
   beforeEach(() => {
     db = new StudentDB();
     fullname = (student: any) => `${student.firstname}, ${student.lastname}, ${student.ssn}`;
