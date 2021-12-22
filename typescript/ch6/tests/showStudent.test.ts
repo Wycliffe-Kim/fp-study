@@ -1,6 +1,5 @@
 import { StudentDB, findFromDB } from '../../ch1/db';
 
-
 describe('showStudent', () => {
   let db: StudentDB;
   let fullname: (student: any) => string;
