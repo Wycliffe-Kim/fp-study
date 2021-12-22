@@ -25,7 +25,7 @@ test('toLetterGrade', () => {
 });
 
 test('fork', () => {
-  const timesTwo = fork((x: number) => x + x, R.identity, R.identity);
+  const timesTwo = fork((x: number, y: number) => x + y, R.identity, R.identity);
   expect(timesTwo(1)).toBe(2);
   expect(timesTwo(2)).toBe(4);
 });
