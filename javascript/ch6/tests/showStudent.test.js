@@ -1,13 +1,11 @@
 const { StudentDB, findFromDB } = require('../../ch1/db');
 
-jest.doMock('../../ch1/db');
-
-let db;
-let fullname;
-let result;
-let ssn;
-
 describe('showStudent', () => {
+  let db;
+  let fullname;
+  let result;
+  let ssn;
+
   beforeEach(() => {
     db = new StudentDB();
     fullname = (student) => `${student.firstname}, ${student.lastname}, ${student.ssn}`;
