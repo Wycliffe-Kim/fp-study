@@ -8,10 +8,14 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.9"
 toolz = "^0.11.2"
 pydash = "^5.1.0"
+pytest-cov = "^3.0.0"
+hypothesis = "^6.31.6"
 
+# poetry run pytest
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 
+# poetry run ch1 ... ch6
 [tool.poetry.scripts]
 ch1 = "python.ch1.index:index"
 ch2 = "python.ch2.index:index"
@@ -19,6 +23,9 @@ ch3 = "python.ch3.index:index"
 ch4 = "python.ch4.index:index"
 ch5 = "python.ch5.index:index"
 ch6 = "python.ch6.index:index"
+
+[tool.pytest]
+addopts = "--cov -s"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
