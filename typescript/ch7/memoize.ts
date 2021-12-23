@@ -22,7 +22,6 @@ function memoize() {
 
   checkPerformancePlusCount('add', () => loop(() => add(1, 2)));
   checkPerformancePlusCount('addMemoized', () => loop(() => addMemoized(1, 2)));
-  
 }
 
 export {
