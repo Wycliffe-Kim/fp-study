@@ -1,22 +1,12 @@
 import axios from 'axios';
-
-function getJSON(url: string, success: (data: any) => void, fail: (error: Error) => void) {
-  console.log('getJSON');
-  axios.get(url)
-  .then((res) => {
-    success(res.data);
-  })
-  .catch((err) => {
-    fail(err);
-  });
-}
+import getJSON from './getJSON';
 
 function callbackHell() {
   getJSON('http://localhost:5555/students', (data) => {
-    console.log('success');
+    console.log('callbackHell', 'success');
     console.log(data);
   }, (err) => {
-    console.log('fail');
+    console.log('callbackHell', 'fail');
     console.log(err);
   });
 }
