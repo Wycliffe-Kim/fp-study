@@ -25,6 +25,7 @@ ch4 = "python.ch4.index:index"
 ch5 = "python.ch5.index:index"
 ch6 = "python.ch6.index:index"
 ch7 = "python.ch7.index:index"
+ch8 = "python.ch8.index:index"
 
 [tool.pytest]
 addopts = "--cov -s"
