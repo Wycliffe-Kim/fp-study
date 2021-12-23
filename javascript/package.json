@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "lint": "eslint --fix --ext .js,.ts .",
-    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4 && yarn ch5 && yarn ch6 && yarn ch7",
+    "start": "yarn ch1 && yarn ch2 && yarn ch3 && yarn ch4 && yarn ch5 && yarn ch6 && yarn ch7 && yarn ch8",
     "test": "jest --coverage --passWithNoTests",
     "ch1": "cd ch1 && node index.js",
     "ch2": "cd ch2 && node index.js",
@@ -13,7 +13,8 @@
     "ch4": "cd ch4 && node index.js",
     "ch5": "cd ch5 && node index.js",
     "ch6": "cd ch6 && node index.js",
-    "ch7": "cd ch7 && node index.js"
+    "ch7": "cd ch7 && node index.js",
+    "ch8": "cd ch8 && node index.js"
   },
   "repository": {
     "type": "git",
