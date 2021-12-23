@@ -1,13 +1,19 @@
 import axios from 'axios';
 
-function getJSON(url: string, success: (data: any) => void, fail: (error: Error) => void) {
+function getJSONCallback(url: string, success: (data: any) => void, fail: (error: Error) => void) {
   axios.get(url)
-  .then((res) => {
-    success(res.data);
-  })
-  .catch((err) => {
-    fail(err);
-  });
+  .then((res) => success(res.data))
+  .catch((err) => fail(err));
 }
 
-export default getJSON;
+function getJSONPromise(url: string) {
+  return new Promise<any>((resolve, reject) => 
+    axios.get(url)
+    .then((res) => resolve(res.data))
+    .catch((err) => reject(err)));
+}
+
+export {
+  getJSONCallback,
+  getJSONPromise
+};

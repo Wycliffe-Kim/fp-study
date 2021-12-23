@@ -1,8 +1,7 @@
-import axios from 'axios';
-import getJSON from './getJSON';
+import { getJSONCallback } from './getJSON';
 
 function callbackHell() {
-  getJSON('http://localhost:5555/students', (data) => {
+  getJSONCallback('http://localhost:5555/students', (data) => {
     console.log('callbackHell', 'success');
     console.log(data);
   }, (err) => {
