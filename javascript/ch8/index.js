@@ -4,6 +4,7 @@ const continuationPassingStyle = require('./continuationPassingStyle');
 const promise = require('./promise');
 const lazyCreateData = require('./lazyCreateData');
 const recursiveGenerator = require('./recursiveGenerator');
+const iterate = require('./iterate');
 
 main([
   callbackHell,
@@ -11,4 +12,5 @@ main([
   promise,
   ...lazyCreateData,
   ...recursiveGenerator,
+  ...iterate,
 ]);
