@@ -1,2 +1,2 @@
 const main = (codes) => codes.forEach((code) => code());
-module.exports = { main };
+module.exports = main;
