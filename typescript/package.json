@@ -37,6 +37,7 @@
     "lodash-lens": "^1.0.3",
     "monet": "^0.9.3",
     "ramda": "^0.27.1",
+    "rxjs": "^7.4.0",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   },
