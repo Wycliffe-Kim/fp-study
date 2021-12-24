@@ -1,4 +1,4 @@
-import _ from 'lodash';
+const _ = require('lodash');
 
 function* range(start = 0, finish = Number.POSITIVE_INFINITY) {
   for (let i = start; i < finish; i++) {
@@ -6,7 +6,7 @@ function* range(start = 0, finish = Number.POSITIVE_INFINITY) {
   }
 }
 
-function take(amount: number, generator: Generator) {
+function take(amount, generator) {
   const result = [];
   for (let n of generator) {
     result.push(n);
@@ -17,7 +17,7 @@ function take(amount: number, generator: Generator) {
   return result;
 }
 
-function* rangeWithSpecification(specification: (value: number) => number, start = 0, finish = Number.POSITIVE_INFINITY) {
+function* rangeWithSpecification(specification, start = 0, finish = Number.POSITIVE_INFINITY) {
   for (let i = start; i < finish; i++) {
     yield specification(i);
   }
@@ -41,11 +41,11 @@ const lazyCreateData = [
   
   () => {
     const result = [];
-    for (let n of rangeWithSpecification((x: number) => Math.pow(x, 2), 1, 4)) {
+    for (let n of rangeWithSpecification((x) => Math.pow(x, 2), 1, 4)) {
       result.push(n);
     }
     console.log('lazyCreateData3', result);
   }
 ];
 
-export default lazyCreateData;
+module.exports = lazyCreateData;
