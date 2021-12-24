@@ -1,13 +1,13 @@
-import _ from 'lodash';
-import R from 'ramda';
-import { Observable, of, from } from 'rxjs';
-import { map, filter } from 'rxjs/operators';
+const _ = require('lodash');
+const R = require('ramda');
+const { Observable, of, from } = require('rxjs');
+const { map, filter } = require('rxjs/operators');
 
-import average from './average';
-import { getJSONPromise } from './getJSON';
+const average = require('./average');
+const { getJSONPromise } = require('./getJSON');
 
 const context = 'reactiveProgramming';
-const startContextLogging = (index: number) => console.log(`${context}${index}`);
+const startContextLogging = (index) => console.log(`${context}${index}`);
 
 const reactiveProgramming = [
   () => {
@@ -27,7 +27,7 @@ const reactiveProgramming = [
   () => {
     startContextLogging(2);
     
-    const squares = (amount: number) => 
+    const squares = (amount) => 
       new Observable((subscriber) => 
         _.range(1, amount + 1).forEach((i) => subscriber.next(i * i)));
   
@@ -50,7 +50,7 @@ const reactiveProgramming = [
 
     from(getJSONPromise('http://localhost:5555/students'))
     .pipe(
-      map(R.map((student: any) => student.grade)),
+      map(R.map((student) => student.grade)),
       map(average),
     )
     .subscribe({
@@ -60,4 +60,4 @@ const reactiveProgramming = [
   }
 ];
 
-export default reactiveProgramming;
+module.exports = reactiveProgramming;

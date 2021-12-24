@@ -5,6 +5,7 @@ const promise = require('./promise');
 const lazyCreateData = require('./lazyCreateData');
 const recursiveGenerator = require('./recursiveGenerator');
 const iterate = require('./iterate');
+const reactiveProgramming = require('./reactiveProgramming');
 
 main([
   callbackHell,
@@ -13,4 +14,5 @@ main([
   ...lazyCreateData,
   ...recursiveGenerator,
   ...iterate,
+  ...reactiveProgramming
 ]);
