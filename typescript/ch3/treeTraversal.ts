@@ -1,8 +1,8 @@
 import { Person_fp } from '../ch2/Person';
-import { Tree } from './Tree';
-import { TreeNode } from './TreeNode';
+import Tree from './Tree';
+import TreeNode from './TreeNode';
 
-function treeTraversal_fp() {
+function treeTraversal() {
   const church = new TreeNode(new Person_fp('Alonzo', 'Church', '111-11-1111'));
   const rosser = new TreeNode(new Person_fp('Barkley', 'Rosser', '222-22-2222'));
   const turing = new TreeNode(new Person_fp('Alan', 'Turing', '333-33-3333'));
@@ -25,6 +25,4 @@ function treeTraversal_fp() {
   });
 }
 
-export {
-  treeTraversal_fp
-};
+export default treeTraversal;

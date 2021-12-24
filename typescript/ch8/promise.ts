@@ -13,6 +13,4 @@ function promise() {
   .catch((error) => log('promise fail', error));
 }
 
-export {
-  promise
-};
+export default promise;

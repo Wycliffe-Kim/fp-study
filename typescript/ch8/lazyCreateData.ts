@@ -24,31 +24,29 @@ function* rangeWithSpecification(specification: (value: number) => number, start
   }
 }
 
-function lazyCreateData1() {
-  const result = [];
-  for (let i of range(1)) {
-    result.push(i);
-    if (i == 3) {
-      break;
+const lazyCreateData = [
+  () => {
+    const result = [];
+    for (let i of range(1)) {
+      result.push(i);
+      if (i == 3) {
+        break;
+      }
     }
+    console.log('lazyCreateData1', result);
+  },
+  
+  () => {
+    console.log('lazyCreateData2', take(3, range(1, Infinity)));
+  },
+  
+  () => {
+    const result = [];
+    for (let n of rangeWithSpecification((x: number) => Math.pow(x, 2), 1, 4)) {
+      result.push(n);
+    }
+    console.log('lazyCreateData3', result);
   }
-  console.log('lazyCreateData1', result);
-}
+];
 
-function lazyCreateData2() {
-  console.log('lazyCreateData2', take(3, range(1, Infinity)));
-}
-
-function lazyCreateData3() {
-  const result = [];
-  for (let n of rangeWithSpecification((x: number) => Math.pow(x, 2), 1, 4)) {
-    result.push(n);
-  }
-  console.log('lazyCreateData3', result);
-}
-
-export {
-  lazyCreateData1,
-  lazyCreateData2,
-  lazyCreateData3
-};
+export default lazyCreateData;

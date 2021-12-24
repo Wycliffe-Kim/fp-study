@@ -29,6 +29,4 @@ function impureAndPure() {
   showStudent('444-44-4444');
 }
 
-export {
-  impureAndPure
-};
+export default impureAndPure;

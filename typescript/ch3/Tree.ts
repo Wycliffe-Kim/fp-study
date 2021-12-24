@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { TreeNode } from './TreeNode';
+import TreeNode from './TreeNode';
 
 class Tree {
   _root: TreeNode;
@@ -26,6 +26,4 @@ class Tree {
   }
 }
 
-export {
-  Tree
-};
+export default Tree;

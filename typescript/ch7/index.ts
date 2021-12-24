@@ -1,5 +1,5 @@
 import main from '../main';
-import { memoize } from './memoize';
+import memoize from './memoize';
 
 main([
   memoize
