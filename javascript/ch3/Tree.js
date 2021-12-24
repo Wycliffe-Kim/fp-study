@@ -23,6 +23,4 @@ class Tree {
   }
 }
 
-module.exports = {
-  Tree
-};
+module.exports = Tree;

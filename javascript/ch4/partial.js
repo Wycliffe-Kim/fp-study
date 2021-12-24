@@ -5,6 +5,4 @@ function partial() {
   console.log('Functional Programming'.first(3));
 }
 
-module.exports = {
-  partial
-};
+module.exports = partial;

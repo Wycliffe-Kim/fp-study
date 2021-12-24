@@ -27,6 +27,4 @@ function impureAndPure() {
   showStudent('444-44-4444');
 }
 
-module.exports = {
-  impureAndPure
-}
+module.exports = impureAndPure;

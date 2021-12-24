@@ -14,6 +14,4 @@ function currying() {
   // checkType(String)(42);
 }
 
-module.exports = {
-  currying
-};
+module.exports = currying;

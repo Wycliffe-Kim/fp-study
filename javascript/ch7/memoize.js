@@ -24,6 +24,4 @@ function memoize() {
   checkPerformancePlusCount('addMemoized', () => loop(() => addMemoized(1, 2)));
 }
 
-module.exports = {
-  memoize
-};
+module.exports = memoize;
