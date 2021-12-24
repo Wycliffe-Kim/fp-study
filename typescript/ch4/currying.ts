@@ -14,6 +14,4 @@ function currying() {
   // checkType(String)(42);
 }
 
-export {
-  currying
-};
+export default currying;

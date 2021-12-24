@@ -41,6 +41,4 @@ class TreeNode {
   }
 }
 
-export {
-  TreeNode
-};
+export default TreeNode;

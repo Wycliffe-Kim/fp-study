@@ -1,16 +1,8 @@
 import main from '../main';
-import { functor1, functor2 } from './functor';
-import { monadCompose, monad1, monad2, monadChain, monadEither, monadIO, monadLift, monadMaybe } from './monad';
+import functor from './functor';
+import monad from './monad';
 
 main([
-  functor1,
-  functor2,
-  monad1,
-  monad2,
-  monadMaybe,
-  monadLift,
-  monadEither,
-  monadIO,
-  monadChain,
-  monadCompose
+  ...functor,
+  ...monad
 ]);

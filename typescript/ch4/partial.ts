@@ -24,6 +24,4 @@ function partial() {
   console.log(('Functional Programming' as any).first(3));
 }
 
-export {
-  partial
-};
+export default partial;

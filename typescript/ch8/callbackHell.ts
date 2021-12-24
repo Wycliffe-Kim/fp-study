@@ -16,6 +16,4 @@ function callbackHell() {
   });
 }
 
-export {
-  callbackHell
-};
+export default callbackHell;

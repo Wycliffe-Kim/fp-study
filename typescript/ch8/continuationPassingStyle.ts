@@ -22,6 +22,4 @@ function continuationPassingStyle() {
   getJSONCallback('http://localhost:5555/students', success, fail);
 }
 
-export {
-  continuationPassingStyle
-};
+export default continuationPassingStyle;
