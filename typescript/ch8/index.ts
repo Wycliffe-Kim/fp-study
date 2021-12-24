@@ -5,6 +5,7 @@ import { lazyCreateData1, lazyCreateData2, lazyCreateData3 } from './lazyCreateD
 import { promise } from './promise';
 import { recursiveGenerator1, recursiveGenerator2 } from './recursiveGenerator';
 import { iterate1, iterate2 } from './iterate';
+import reactiveProgramming from './reactiveProgramming';
 
 main([
   callbackHell,
@@ -16,5 +17,6 @@ main([
   recursiveGenerator1,
   recursiveGenerator2,
   iterate1,
-  iterate2
+  iterate2,
+  ...reactiveProgramming
 ]);
