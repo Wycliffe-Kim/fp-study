@@ -64,3 +64,8 @@ def filter_fp():
               .value())
     
     print('filter_fp', result)
+    
+filter = [
+    filter_ip,
+    filter_fp
+]

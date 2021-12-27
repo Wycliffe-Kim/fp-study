@@ -2,7 +2,7 @@ from ..ch2.Person import Person_fp
 from .Tree import Tree
 from .TreeNode import TreeNode
 
-def tree_traversal_fp():
+def tree_traversal():
     church = TreeNode(Person_fp('Alonzo', 'Church', '111-11-1111'));
     rosser = TreeNode(Person_fp('Barkley', 'Rosser', '222-22-2222'));
     turing = TreeNode(Person_fp('Alan', 'Turing', '333-33-3333'));

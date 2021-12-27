@@ -17,3 +17,8 @@ def functor2():
     plus10 = plus(10)
     fifteen = two.fmap(plus3).fmap(plus10)
     fifteen.map(print)
+    
+functor = [
+    functor1,
+    functor2
+]

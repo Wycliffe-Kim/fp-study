@@ -49,3 +49,8 @@ def reduce_fp():
     result = tz.frequencies(persons)
     
     print('reduce_fp', result)
+    
+reduce = [
+    reduce_ip,
+    reduce_fp
+]

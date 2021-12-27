@@ -45,3 +45,10 @@ def _average_fp(arr):
     size = lambda arr: len(arr)
     divide = lambda a, b: a / b
     return divide(total(arr), size(arr))
+
+average = [
+    average_ip,
+    average_fp,
+    average_grade_ip,
+    average_grade_fp
+]

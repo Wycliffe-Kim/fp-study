@@ -37,3 +37,9 @@ def compose3():
     
     print(clean_input('444-44-4444'))
     print(is_valid_ssn('444-44-4444'))
+    
+compose = [
+    compose1,
+    compose2,
+    compose3
+]

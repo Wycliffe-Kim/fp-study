@@ -107,3 +107,14 @@ def monad_compose():
     
     result = show_student('444-44-4444')
     print(result)
+    
+monad = [
+    monad1,
+    monad2,
+    monad_maybe,
+    monad_lift,
+    monad_either,
+    monad_io,
+    monad_chain,
+    monad_compose
+]
