@@ -10,14 +10,15 @@ toolz = "^0.11.2"
 pydash = "^5.1.0"
 pytest-cov = "^3.0.0"
 hypothesis = "^6.31.6"
-
 requests = "^2.26.0"
-# poetry run pytest
+aiohttp = "^3.8.1"
+
 [tool.poetry.dev-dependencies]
+# poetry run pytest
 pytest = "^5.2"
 
-# poetry run ch1 ... ch6
 [tool.poetry.scripts]
+# poetry run ch1 ... ch6
 ch1 = "python.ch1.index:index"
 ch2 = "python.ch2.index:index"
 ch3 = "python.ch3.index:index"
