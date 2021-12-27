@@ -11,3 +11,8 @@ def power_ip():
     print('power_ip', result)
     
 power_fp = lambda: print('power_fp', pydash.map_(array, lambda num: math.pow(num, 2)))
+
+power = [
+    power_ip,
+    power_fp
+]

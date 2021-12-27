@@ -51,3 +51,8 @@ def map_fp():
     result = pydash.map_(persons, fullname)
     
     print('map_fp', result)
+    
+map = [
+    map_ip,
+    map_fp
+]

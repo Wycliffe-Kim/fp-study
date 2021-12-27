@@ -30,3 +30,8 @@ def show_student_fp():
     )
     
     show_student(ssn)
+    
+show_student = [
+    show_student_ip,
+    show_student_fp
+]

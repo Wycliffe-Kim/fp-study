@@ -39,3 +39,9 @@ def find_students_by_fp():
                                                   .value())
     
     print('find_students_by_fp', find_students_by([curry, turing, kleene], selector(church.address.country, church.school)))
+    
+    
+find_students_by = [
+    find_students_by_ip,
+    find_students_by_fp
+]

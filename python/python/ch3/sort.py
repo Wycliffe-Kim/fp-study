@@ -36,3 +36,8 @@ def sort_fp():
               .value())
     
     print('sort_fp', result)
+    
+sort = [
+    sort_ip,
+    sort_fp
+]
