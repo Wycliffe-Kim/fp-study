@@ -1,4 +1,4 @@
-# 함수형 자바스크립트 - 루이스 아텐시오 스터디
+# 'Functional Programming in Javascript - Luis Atensio' Study
 1. Javascript
 2. Python
 3. Typescript
