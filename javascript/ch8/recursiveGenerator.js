@@ -23,7 +23,6 @@ const recursiveGenerator = [
   
     function* TuringStudentGenerator() {
       yield 'Gandy';
-      yield 'Sacks';
     }
   
     function* KleeneStudentGenerator() {
